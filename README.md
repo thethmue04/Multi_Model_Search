@@ -34,9 +34,11 @@ MULTIMODAL_SEARCH/
 │   └── vite.config.js      # Frontend build configurations
 │
 ├── my_dataset/             # Local directory for raw image storage (Git ignored)
-└── docker-compose.yml      # Orchestration layer for multi-container deployment
---- 
+└── docker-compose.yml      # Orchestration layer for 
+```
 
+## Multi-container deployment
+```
 🛠️ Tech Stack
 
     Frontend: React, Vite, JavaScript (ES6+)
@@ -48,8 +50,10 @@ MULTIMODAL_SEARCH/
     Vector Database: Qdrant (Running via Docker on Port 6333)
 
     DevOps & CI/CD: Docker, Docker Compose, GitHub Actions
+```
 ---
-🏁 Getting Started
+### 🏁 Getting Started
+
 1. Prerequisites
 
 Ensure you have the following installed on your machine:
@@ -59,25 +63,26 @@ Ensure you have the following installed on your machine:
     Python 3.10+
 
     Node.js & npm
----
+
 2. Environment Setup
 
 Clone the repository and prepare your local media directory:
-Bash
-```
+
+```Bash
 git clone <your-repository-url>
 cd MULTIMODAL_SEARCH
 mkdir my_dataset
 ```
 Drop the images (.png, .jpg, .jpeg) you wish to index inside the newly created my_dataset/ folder.
----
+
 3. Launching the Services
 
 Spin up the Qdrant database instance and your environment containers using Docker Compose:
 Bash
-
+```
 docker-compose up -d
----
+```
+
 4. Running the Ingestion Pipeline
 
 To encode your images into the Qdrant vector collection, navigate to your backend directory, install the dependencies, and run the ingestion script:
@@ -86,7 +91,7 @@ Bash
 cd backend
 pip install -r requirements.txt
 python ingest.py
-
+```
 Upon successful execution, the script automatically verifies or provisions the multimodal_search collection, processes the images, and batch-upserts the 512-dimensional structural points into the cluster.
 
 📊 Database Visualization
@@ -96,4 +101,5 @@ Once the ingestion pipeline successfully runs, you can access the Qdrant Web UI 
 ### 💡 Tips for Your Presentation:
 * **The "Project Architecture" Section:** Use this part of the README during your presentation slides to show how clean your code separation is (`backend` for AI logic, `frontend` for DX UX).
 * **The "Key Features" Section:** Point out the **512 dimensions** and **Cosine Similarity** details—professors and technical reviewers love seeing specific metric definitions right in the documentation!
----
+
+Author : Thet Hmue Khin
